@@ -1,5 +1,6 @@
 pandas
 plotly
+ptvsd
 pydeck
 streamlit
 stqdm
