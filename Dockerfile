@@ -9,7 +9,9 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/evan-harley/CamAPIDashboard .
+RUN git clone https://github.com/raven-black-dream/CamAPIDashboard .
+
+RUN pip3 install --upgrade pip
 
 RUN pip3 install -r requirements.txt
 

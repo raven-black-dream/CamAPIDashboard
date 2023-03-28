@@ -7,6 +7,10 @@ from stqdm import stqdm
 
 TEST = False
 
+import ptvsd
+ptvsd.enable_attach(address=('localhost', 5678))
+ptvsd.wait_for_attach()
+
 
 def parse_data(data: dict) -> pd.DataFrame:
     data = {'camID': data['id'],
