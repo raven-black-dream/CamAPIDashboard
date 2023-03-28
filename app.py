@@ -7,10 +7,6 @@ from stqdm import stqdm
 
 TEST = False
 
-import ptvsd
-ptvsd.enable_attach(address=('localhost', 5678))
-ptvsd.wait_for_attach()
-
 
 def parse_data(data: dict) -> pd.DataFrame:
     data = {'camID': data['id'],
@@ -72,8 +68,14 @@ There are two pages so far not counting this introductory page
 
 """)
 
-if 'data' not in st.session_state:
-    if not TEST:
-        st.session_state['data'] = load_data()
-    else:
-        st.session_state['data'] = pd.read_pickle('data.pkl')
+def main():
+
+    if 'data' not in st.session_state:
+        if not TEST:
+            st.session_state['data'] = load_data()
+        else:
+            st.session_state['data'] = pd.read_pickle('data.pkl')
+
+
+if __name__ == "__main__":
+    main()
